@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sump.dlr.de/xsd/sumoConfiguration.xsd">
+    <input>
+        <net-file value="grid.net.xml"/>
+        <route-files value="grid.rou.xml"/>
+		<additional-files value="grid_tlc_30_static.xml"/>
+		<gui-settings-file value="grid.settings.xml"/>
+    </input>
+
+	<configuration>
+		<save-configuration value="debug.grid.xml"/>
+	</configuration>
+
+	<time>
+        <begin value="0"/>
+        <step-length value="1"/>
+    </time>
+    	    
+    <gui_only>
+        <start value="false"/>
+    </gui_only>
+
+	<random_number>
+		<random value="true" />
+	</random_number>
+
+	<output>
+        <tripinfo-output value="grid.tripinfo.xml"/>
+    </output>
+
+    <report>
+        <duration-log.statistics value="true"/>
+        <no-step-log value="true"/>
+        <log value="grid_log.txt"/>
+    </report>
+
+    <processing>
+	<time-to-teleport value="-1"/>
+		<collision.action value="none"/>
+	</processing>
+    
+    <routing>
+		<routing-algorithm value="CHWrapper"/>  <!--"dijkstra"/> astar CH-->
+        <device.rerouting.adaptation-interval value="60"/> <!--The interval for updating the edge weights -->
+        <device.rerouting.adaptation-steps value="4"/> <!--The number of adaptation steps for averaging (enable for values > 0) -->
+        <device.rerouting.period value="200"/> <!--The period with which the vehicle shall be rerouted -->
+        <device.rerouting.output value="rerouting.adapting_weights.sumout.txt"/>
+    </routing>
+
+</configuration>
